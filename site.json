@@ -3,6 +3,6 @@
   "tagline": "Independent news, plainly reported",
   "logo": "images/logo.svg",
   "showNameBesideLogo": true,
-  "basePath": "",
+  "basePath": "/farse",
   "contactEmail": "newsroom@example.com"
 }

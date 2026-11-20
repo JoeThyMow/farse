@@ -14,7 +14,8 @@ const path = require('path');
 
 const ROOT = __dirname;
 const cfg = JSON.parse(fs.readFileSync(path.join(ROOT, 'site.json'), 'utf8'));
-const BASE = (cfg.basePath || '').replace(/\/+$/, '');
+const CFG_BASE = (cfg.basePath || '').replace(/\/+$/, '');
+let BASE = ''; // links are written root-relative, then made relative per page in write()
 
 /* ---------- helpers ---------- */
 const esc = s => String(s == null ? '' : s)
@@ -33,6 +34,13 @@ const shortDate = d => {
 };
 
 function write(rel, html) {
+  // Make every root-relative link relative to this page's depth, so the site
+  // works at a domain root, under /repo-name, or from any folder.
+  if (rel.endsWith('.html') && rel !== '404.html') {
+    const depth = rel.split('/').length - 1;
+    const prefix = depth ? '../'.repeat(depth) : './';
+    html = html.replace(/(href|src)="\/(?!\/)/g, '$1="' + prefix);
+  }
   const full = path.join(ROOT, rel);
   fs.mkdirSync(path.dirname(full), { recursive: true });
   fs.writeFileSync(full, html);
@@ -343,6 +351,8 @@ pages.forEach(p => {
 });
 
 /* ---------- 404 ---------- */
+// 404 can be served from any path, so it needs absolute links (uses basePath)
+BASE = CFG_BASE;
 write('404.html', layout({
   title: 'Page not found', section: '', crumbs: [{ label: 'page not found' }],
   center: `<h1 class="pagetitle">Page not found</h1>\n<p>The page you asked for isn't here. Try the <a href="${href('/')}">front page</a> or the <a href="${href('/archive/')}">archive</a>.</p>`,
@@ -352,7 +362,7 @@ write('404.html', layout({
 /* ---------- article index ---------- */
 write('articles.json', JSON.stringify(articles.map(a => ({
   slug: a.slug, title: a.title, date: a.date, author: a.author, tags: a.tags,
-  summary: a.summary, image: a.image, url: BASE + articleUrl(a)
+  summary: a.summary, image: a.image, url: CFG_BASE + articleUrl(a)
 })), null, 2) + '\n');
 
 console.log(`Built ${articles.length} article(s), ${tagKeys.length} topic(s), ${pages.length} page(s).`);

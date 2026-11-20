@@ -10,7 +10,7 @@
     ],
     "summary": "Shops, a public promenade and a restored ferry landing welcomed their first visitors this week, closing out one of the city's longest-running construction projects.",
     "image": "images/sample-harbor.svg",
-    "url": "/article/harbor-district-reopens/"
+    "url": "/farse/article/harbor-district-reopens/"
   },
   {
     "slug": "transit-weekend-service",
@@ -24,7 +24,7 @@
     ],
     "summary": "More frequent buses and two added late-night routes will begin next spring after the board's unanimous vote.",
     "image": "images/sample-transit.svg",
-    "url": "/article/transit-weekend-service/"
+    "url": "/farse/article/transit-weekend-service/"
   },
   {
     "slug": "bakeries-holiday-orders",
@@ -37,7 +37,7 @@
     ],
     "summary": "Pre-orders for pies, breads and cookies are running well ahead of last year, and some shops have already stopped accepting new requests.",
     "image": "images/sample-bakery.svg",
-    "url": "/article/bakeries-holiday-orders/"
+    "url": "/farse/article/bakeries-holiday-orders/"
   },
   {
     "slug": "opinion-public-libraries",
@@ -50,7 +50,7 @@
     ],
     "summary": "In an age of endless digital content, the library remains one of the few places open to everyone, for free.",
     "image": "images/sample-library.svg",
-    "url": "/article/opinion-public-libraries/"
+    "url": "/farse/article/opinion-public-libraries/"
   },
   {
     "slug": "robotics-state-finals",
@@ -63,6 +63,6 @@
     ],
     "summary": "After a strong regional showing, the students will compete against the top teams in the state next month.",
     "image": "images/sample-robotics.svg",
-    "url": "/article/robotics-state-finals/"
+    "url": "/farse/article/robotics-state-finals/"
   }
 ]

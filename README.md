@@ -9,8 +9,13 @@ URLs have no `.html` (for example `/article/harbor-district-reopens/`).
 2. Repo **Settings > Pages**, set the source to **Deploy from a branch**, branch `main`, folder `/ (root)`.
 3. Optional: add a custom domain in the same Pages screen.
 
-If the site lives at `username.github.io/repo-name` (not a custom domain or `username.github.io`),
-set `"basePath": "/repo-name"` in `site.json` so links work.
+Links are relative, so the site works at a domain root or under `username.github.io/repo-name`.
+If you use a repo-name URL, also set `"basePath": "/repo-name"` in `site.json` (only the 404 page needs it).
+
+## Preview on your computer
+
+Run `node serve.js` and open http://localhost:8080. (Opening `index.html` directly shows the front page,
+but folder links need a server, which is what `serve.js` is.)
 
 ## Your name and logo
 
