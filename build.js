@@ -165,7 +165,9 @@ function squares() {
   for (let r = 0; r < 4; r++) for (let c = 0; c < 11; c++) {
     const v = (c * 7 + r * 5 + c * r) % 6;
     const cls = v < 2 ? 'f' : v === 2 ? 'h' : 'o';
-    s += `<rect class="${cls}" x="${c * 20 + 2}" y="${r * 19 + 2}" width="16" height="16" rx="4"/>`;
+    const x = c * 20 + 2, y = r * 19 + 2;
+    if (cls === 'h') s += `<rect class="o" x="${x}" y="${y}" width="16" height="16" rx="4"/><rect class="f" x="${x + 1}" y="${y + 8}" width="14" height="7" rx="3"/>`;
+    else s += `<rect class="${cls}" x="${x}" y="${y}" width="16" height="16" rx="4"/>`;
   }
   return s + '</svg>';
 }
@@ -180,7 +182,7 @@ function navLinks(section) {
     { id: 'tags', label: 'Topics', url: '/tags/' },
     ...pages.filter(p => p.nav).map(p => ({ id: p.slug, label: p.title, url: `/${p.slug}/` }))
   ];
-  return items.map(i => `<a href="${href(i.url)}"${i.id === section ? ' class="on" aria-current="page"' : ''}>${esc(i.label)}</a>`).join('');
+  return items.map(i => `<a href="${href(i.url)}"${i.id === section ? ' class="on" aria-current="page"' : ''}>${esc(i.label)}</a>`).join(' <span class="sep">|</span> ');
 }
 
 function recentList(list) {
@@ -231,16 +233,17 @@ ${cfg.logo ? `<link rel="icon" href="${esc(asset(cfg.logo))}">` : ''}
 <link rel="stylesheet" href="${asset('assets/style.css')}">
 </head>
 <body>
-<div class="frame" id="top">
+<div class="page" id="top">
+  <div class="swoosh-top" aria-hidden="true"></div>
+  <div class="crumb">You are here: &nbsp;&gt;&gt; ${crumbHtml}</div>
   <header class="masthead">
     <a class="brand" href="${href('/')}">${logo}${name}</a>
-    <div class="mast-right">
-      <span class="tagline">${esc(cfg.tagline)}</span>
-      <button type="button" class="theme-btn" id="theme-toggle" aria-label="Switch between light and dark mode">Dark mode</button>
-    </div>
+    <span class="tagline">${esc(cfg.tagline)}</span>
   </header>
-  <nav class="nav" aria-label="Main">${navLinks(section)}</nav>
-  <div class="crumb">You are here: &nbsp;&gt;&gt; ${crumbHtml}</div>
+  <nav class="nav" aria-label="Main">
+    <span class="links">${navLinks(section)}</span>
+    <button type="button" class="theme-btn" id="theme-toggle" aria-label="Switch between light and dark mode">Dark mode</button>
+  </nav>
   <div class="cols">
     <aside class="left">${adLeft}</aside>
     <main class="center">
@@ -252,6 +255,7 @@ ${center}
     <span><a href="${href('/archive/')}">Archive</a> &nbsp;|&nbsp; <a href="#top">Top of page</a></span>
     <span>Copyright ${new Date().getFullYear()} ${esc(cfg.name)}. All rights reserved.</span>
   </footer>
+  <div class="swoosh-bot" aria-hidden="true"></div>
 </div>
 <script src="${asset('assets/site.js')}"></script>
 </body>
@@ -276,7 +280,7 @@ const featured = articles[0];
 const others = articles.slice(1, 7);
 let homeCenter = `<h1 class="welcome">Welcome to ${esc(cfg.name)}</h1>\n`;
 if (featured) {
-  homeCenter += `<div class="kicker">Latest Article</div>
+  homeCenter += `<div class="kicker">&gt;&gt; Latest Article</div>
 <article class="feature">
   ${featured.image ? `<a href="${href(articleUrl(featured))}"><img src="${esc(asset(featured.image))}" alt="${esc(featured.imageAlt)}"></a>` : ''}
   <h2><a href="${href(articleUrl(featured))}">${esc(featured.title)}</a></h2>
