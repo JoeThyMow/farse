@@ -1,0 +1,8 @@
+{
+  "name": "Your News Name",
+  "tagline": "Independent news, plainly reported",
+  "logo": "images/logo.svg",
+  "showNameBesideLogo": true,
+  "basePath": "",
+  "contactEmail": "newsroom@example.com"
+}

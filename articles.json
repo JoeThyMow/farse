@@ -1,0 +1,68 @@
+[
+  {
+    "slug": "harbor-district-reopens",
+    "title": "Harbor District Reopens After Two-Year Renovation",
+    "date": "2026-11-19",
+    "author": "Staff Reporter",
+    "tags": [
+      "local",
+      "community"
+    ],
+    "summary": "Shops, a public promenade and a restored ferry landing welcomed their first visitors this week, closing out one of the city's longest-running construction projects.",
+    "image": "images/sample-harbor.svg",
+    "url": "/article/harbor-district-reopens/"
+  },
+  {
+    "slug": "transit-weekend-service",
+    "title": "Regional Transit Board Approves Weekend Service Expansion",
+    "date": "2026-11-18",
+    "author": "Staff Reporter",
+    "tags": [
+      "transit",
+      "local",
+      "government"
+    ],
+    "summary": "More frequent buses and two added late-night routes will begin next spring after the board's unanimous vote.",
+    "image": "images/sample-transit.svg",
+    "url": "/article/transit-weekend-service/"
+  },
+  {
+    "slug": "bakeries-holiday-orders",
+    "title": "Local Bakeries Report Record Holiday Orders",
+    "date": "2026-11-16",
+    "author": "Staff Reporter",
+    "tags": [
+      "business",
+      "food"
+    ],
+    "summary": "Pre-orders for pies, breads and cookies are running well ahead of last year, and some shops have already stopped accepting new requests.",
+    "image": "images/sample-bakery.svg",
+    "url": "/article/bakeries-holiday-orders/"
+  },
+  {
+    "slug": "opinion-public-libraries",
+    "title": "Opinion: Why Public Libraries Still Matter",
+    "date": "2026-11-12",
+    "author": "Guest Columnist",
+    "tags": [
+      "opinion",
+      "culture"
+    ],
+    "summary": "In an age of endless digital content, the library remains one of the few places open to everyone, for free.",
+    "image": "images/sample-library.svg",
+    "url": "/article/opinion-public-libraries/"
+  },
+  {
+    "slug": "robotics-state-finals",
+    "title": "High School Robotics Team Heads to State Finals",
+    "date": "2026-11-09",
+    "author": "Staff Reporter",
+    "tags": [
+      "education",
+      "sports"
+    ],
+    "summary": "After a strong regional showing, the students will compete against the top teams in the state next month.",
+    "image": "images/sample-robotics.svg",
+    "url": "/article/robotics-state-finals/"
+  }
+]
